@@ -3,8 +3,9 @@ import Agregator from "../components/agregator"
 const AgregatorPage = () => {
     return (
         <div>
-            <Agregator />
+            <Agregator/>
         </div>
+
     )
 }
 
