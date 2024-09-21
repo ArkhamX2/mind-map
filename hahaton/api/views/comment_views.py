@@ -30,8 +30,7 @@ def update_comment(request):
 
 @api_view(['DELETE'])
 def delete_comment(request):
-    id=request.data['id']
-    comment = Comment.objects.get(id=id)
+    comment = Comment.objects.get(id=request.data['id'])
     comment.delete()
     return Response("deleted")
 

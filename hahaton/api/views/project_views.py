@@ -22,3 +22,27 @@ def get_project_by_tags(request,id):
     queryset = Project.objects.filter(tags__id__in=ids)
     data=ProjectSerializer(queryset,many=True).data
     return Response(data)
+@api_view(['POST'])
+def create_project(request):
+    serializer = ProjectSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    else:
+        return Response(serializer.errors)
+@api_view(['PUT'])
+def update_project(request):
+    id=request.data['id']
+    project = Project.objects.get(id=id)
+    serializer = ProjectSerializer(project,data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    else:
+        return Response(serializer.errors)
+
+@api_view(['DELETE'])
+def delete_project(request):
+    project = Project.objects.get(id=request.data['id'])
+    project.delete()
+    return Response("deleted")
