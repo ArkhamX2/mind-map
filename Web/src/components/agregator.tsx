@@ -6,7 +6,7 @@ const Agregator: FC = () => {
     return (
         <div className="container">
             <div className="header">
-                <div className="text">Sign Up</div>
+                <div className="text">Agregator</div>
             </div>
             <div className="inputs">
                 

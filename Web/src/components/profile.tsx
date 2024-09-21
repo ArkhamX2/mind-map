@@ -6,7 +6,7 @@ const Profile: FC = () => {
     return (
         <div className="container">
             <div className="header">
-                <div className="text">Sign Up</div>
+                <div className="text">Profile</div>
             </div>
             <div className="inputs">
                 
