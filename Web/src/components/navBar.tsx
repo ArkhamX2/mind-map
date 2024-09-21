@@ -6,14 +6,16 @@ const Navbar: FC = () => {
 
     return (
         <div style={{display:'flex',border:'2px solid lightgray',padding:'5px', color:'#371F76', alignSelf:'flex-start'}}>
-                    <Link  style={{margin:'5px', border:'2px solid lightgray',padding:'5px', width:'120px', textAlign:'center', fontSize:'14px'}} to='/login'>
-                    login</Link>
-                    <Link style={{margin:'5px', border:'2px solid lightgray',padding:'5px', width:'120px', textAlign:'center', fontSize:'14px'}} to='/registration'>
-                    registration</Link>                    
-                    <Link style={{margin:'5px', border:'2px solid lightgray',padding:'5px', width:'120px', textAlign:'center', fontSize:'14px'}} to='/agregator'>
-                        agregator</Link>
-                    <Link style={{margin:'5px', border:'2px solid lightgray',padding:'5px', width:'120px', textAlign:'center', fontSize:'14px'}} to='/profile'>
-                    profile</Link>     
+                    <Link  style={{margin:'5px 10px',padding:'5px', textAlign:'center', fontSize:'28px', textDecoration:'none'}} to='/login'>
+                    Войти</Link>
+                    <Link style={{margin:'5px 10px', padding:'5px', textAlign:'center', fontSize:'28px', textDecoration:'none'}} to='/registration'>
+                    Зарегистрироваться</Link>                    
+                    <Link style={{margin:'5px 10px', padding:'5px', textAlign:'center', fontSize:'28px', textDecoration:'none'}} to='/agregator'>
+                    Обучение</Link>
+                    <Link style={{margin:'5px 10px', padding:'5px', textAlign:'center', fontSize:'28px', textDecoration:'none'}} to='/profile'>
+                    Профиль</Link>  
+                    <Link style={{margin:'5px 10px', padding:'5px', textAlign:'center', fontSize:'28px', textDecoration:'none'}} to='/projects'>
+                    Проекты</Link>   
         </div>
 
     )

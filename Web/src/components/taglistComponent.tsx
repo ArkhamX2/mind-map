@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const TagComponent: FC = () => {
         return (
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', justifyContent:'space-between' }}>
                         <div style={{ margin: '10px', width: '620px', height: '52px', backgroundColor: '#EEEFFF', borderRadius: '5px', display: 'flex', alignItems: 'center'
                                 , justifySelf:'start'
                          }}>
