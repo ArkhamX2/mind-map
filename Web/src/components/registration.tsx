@@ -1,11 +1,8 @@
 import axios, { AxiosError } from "axios";
 import { FC, useState } from "react"
 import { Link, useNavigate } from 'react-router-dom'
-import { useAppDispatch } from "../utility/hook";
-import { updateUserData } from "../store/userSlice";
 
 const Registration: FC = () => {
-    const dispatch = useAppDispatch()
     const navigate = useNavigate();
     const [data, setData] = useState({
         email: "",
@@ -26,7 +23,6 @@ const Registration: FC = () => {
             }).then((res) => {
                 setErrorText("")
                 console.log("Server response: ", res);
-                dispatch(updateUserData(res.data.user))
                 navigate("/trains")
             }).catch((err: AxiosError) => {
                 console.log("Server respondend with error: ", err);

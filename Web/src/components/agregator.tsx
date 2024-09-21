@@ -1,8 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { FC, useState } from "react"
 import { Link, useNavigate } from 'react-router-dom'
-import { useAppDispatch } from "../utility/hook";
-import { updateUserData } from "../store/userSlice";
 
 const Agregator: FC = () => {
     return (
