@@ -18,7 +18,8 @@ def create_comment(request):
     else:
         return Response(serializer.errors)
 @api_view(['PUT'])
-def update_comment(request,id):
+def update_comment(request):
+    id=request.data['id']
     comment = Comment.objects.get(id=id)
     serializer = CommentSerializer(comment,data=request.data)
     if serializer.is_valid():
@@ -28,7 +29,8 @@ def update_comment(request,id):
         return Response(serializer.errors)
 
 @api_view(['DELETE'])
-def delete_comment(request,id):
+def delete_comment(request):
+    id=request.data['id']
     comment = Comment.objects.get(id=id)
     comment.delete()
     return Response("deleted")
