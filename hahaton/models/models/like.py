@@ -7,3 +7,7 @@ class Like(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE) 
     object_id = models.PositiveIntegerField()
     object= GenericForeignKey('content_type', 'object_id')
+    class Meta:
+        db_table = "likes"
+        verbose_name = "Like"
+        verbose_name_plural = "Likes"
