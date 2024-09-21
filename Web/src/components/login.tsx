@@ -1,9 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { FC, useEffect, useState } from "react"
 import { Link, useNavigate } from 'react-router-dom'
-import { useAppDispatch } from "../utility/hook";
-import { updateUserData } from "../store/userSlice";
-import Cookies from 'js-cookie';
+import { useAppDispatch } from "../utility/hooks";
 
 const Login: FC = () => {
     const dispatch = useAppDispatch()
@@ -22,7 +20,6 @@ const Login: FC = () => {
             setErrorText("")
             console.log("Server response: ", res);
             //Cookies.set('trains_cookie', res.data.access);
-            dispatch(updateUserData(res.data.user))
             navigate("/trains")
         }).catch((err) => {
             console.log("Server respondend with error: ", err);
