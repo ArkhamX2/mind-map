@@ -8,13 +8,13 @@ def get_course_status(request):
     serializer = CourseStatusSerializer(course_status, many=True)
     return Response(serializer.data)
 @api_view(['GET'])
-def get_course_status_by_user(request,user_id):
-    course_status = CourseStatus.objects.filter(user_id=user_id)
+def get_course_status_by_user(request,id):
+    course_status = CourseStatus.objects.filter(user_id=id)
     serializer = CourseStatusSerializer(course_status, many=True)
     return Response(serializer.data)
 @api_view(['GET'])
-def get_course_status_by_course(request,course_id):
-    course_status = CourseStatus.objects.filter(course_id=course_id)
+def get_course_status_by_course(request,id):
+    course_status = CourseStatus.objects.filter(course_id=id)
     serializer = CourseStatusSerializer(course_status, many=True)
     return Response(serializer.data)
 @api_view(['GET'])
