@@ -1,12 +1,28 @@
 import axios, { AxiosError } from "axios";
 import { FC, useEffect, useRef, useState } from "react"
 import AgrCard from "../components/agrCard"
+import { BASE_LINK } from "../../settings";
 
 const Agregator: FC = () => {
+    useEffect(() => {
+        console.log("FETCH")
+        axios.get(BASE_LINK + "api/course/get", {
+        }).then((res) => {
+            console.log(res)
+            axios.get(BASE_LINK + "api/course_tag/get", {
+            }).then((res) => {
+                console.log(res)
+            }).catch((err) => {
+                console.log("Server respondend with error: ", err);
+            })
+        }).catch((err) => {
+            console.log("Server respondend with error: ", err);
+        })
+    }, [])
     return (
         <main style={{ backgroundColor: "#FFFFFF", width: '100%', height: '100%', padding: "15px" }}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div className="searchcontainer" style={{ width: "100%", height: '100%', display: "flex", flexDirection: 'column', marginTop:'70px' }}>
+                <div className="searchcontainer" style={{ width: "100%", height: '100%', display: "flex", flexDirection: 'column', marginTop: '70px' }}>
                     <div className="searchbarcontainer" style={{ display: 'inline-flex', justifyContent: 'space-between', alignSelf: 'center' }}>
                         <div className="searchbar" style={{ justifySelf: 'start' }}>
                             <input type="text" style={{

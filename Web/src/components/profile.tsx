@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react"
 import { Link, useNavigate } from 'react-router-dom'
 import TagComponent from "../components/taglistComponent"
 import MindNetwork from "../components/mindNetwork"
-import { course, courseTag } from "../types";
+import { course, courseStatus, courseTag } from "../types";
 import { Edge, Node, Data } from "vis-network/standalone/esm/vis-network";
 import useModal from "../utility/useModal";
 import Modal from "./modal";
@@ -74,15 +74,43 @@ const initCourseTagData = [
 
 const Profile: FC = () => {
     const [selectedNode, setSelectedNode] = useState<number>()
-    const [courseData, setCourseData] = useState([...initCourseData])
-    const [courseTagData, setCourseTagData] = useState([...initCourseTagData])
+    const [initialCourseData, setInitialCourseData] = useState<course[]>([])
+    const [initialCourseTagData, setInitialCourseTagData] = useState<courseTag[]>([])
+    const [courseData, setCourseData] = useState([...initialCourseData])
+    const [courseTagData, setCourseTagData] = useState([...initialCourseTagData])
+    const [upd, setUpd] = useState(false)
     const { isOpen, toggle } = useModal()
 
     useEffect(() => {
+        var userId = 2
         console.log("FETCH")
-        axios.get(BASE_LINK + "api/user_tag/get/3", {
+        axios.get(BASE_LINK + "api/user_tag/get/" + userId, {
         }).then((res) => {
             console.log(res)
+            setInitialCourseTagData(res.data)
+            axios.get(BASE_LINK + "api/course_status/get/" + userId, {
+            }).then((res) => {
+                console.log(res)
+                var courseIds = (res.data as courseStatus[]).filter((status) => status.status == "completed")
+                courseIds.map((status) => {
+                    axios.get(BASE_LINK + "api/course/get/" + status.course, {
+                    }).then((res) => {
+                        console.log(res)
+                        axios.get(BASE_LINK + "api/course_tag/get/", {
+                        }).then((res) => {
+                            console.log(res)
+                        }).catch((err) => {
+                            console.log("Server respondend with error: ", err);
+                        })
+                        setInitialCourseData([...initialCourseData, res.data])
+                        setUpd(true)
+                    }).catch((err) => {
+                        console.log("Server respondend with error: ", err);
+                    })
+                })
+            }).catch((err) => {
+                console.log("Server respondend with error: ", err);
+            })
         }).catch((err) => {
             console.log("Server respondend with error: ", err);
         })
@@ -91,19 +119,19 @@ const Profile: FC = () => {
     useEffect(() => {
         if (selectedNode != undefined) {
             if (selectedNode > 0) {
-                setCourseTagData([...initCourseTagData.filter((tag) => tag.id == selectedNode)])
-                setCourseData([...initCourseData])
+                setCourseTagData([...initialCourseTagData.filter((tag) => tag.id == selectedNode)])
+                setCourseData([...initialCourseData])
             }
             else {
-                setCourseTagData([...initCourseTagData.filter((tag) => tag.course_id.find((id) => id == selectedNode * -1) != undefined)])
-                setCourseData([...initCourseData.filter((course) => course.id == selectedNode * -1)])
+                setCourseTagData([...initialCourseTagData.filter((tag) => tag.course_id!.find((id) => id == selectedNode * -1) != undefined)])
+                setCourseData([...initialCourseData.filter((course) => course.id == selectedNode * -1)])
             }
         }
         else {
-            setCourseData([...initCourseData])
-            setCourseTagData([...initCourseTagData])
+            setCourseData([...initialCourseData])
+            setCourseTagData([...initialCourseTagData])
         }
-    }, [selectedNode])
+    }, [selectedNode, upd])
 
     const getSelectedNode = (nodeId?: number) => {
         setSelectedNode(nodeId)
@@ -114,13 +142,13 @@ const Profile: FC = () => {
     return (
         <main style={{ backgroundColor: "#FFFFFF", width: '100%', height: '100%', padding: "15px" }}>
             <Modal isOpen={isOpen} toggle={toggle}>
-                <div style={{ width: '400px', height: '480px', overflowY: 'auto'}}>
-                    <div style={{overflowY: 'auto', display:'flex', flexDirection:'column'}}>
+                <div style={{ width: '400px', height: '480px', overflowY: 'auto' }}>
+                    <div style={{ overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ display: 'flex', flexDirection: 'row', padding: '5px', margin: '5px' }}>
                             <input className={classes.Input} style={{ width: '320px' }}></input>
-                            <div style={{border:'2px solid #8787C7', padding:'5px', margin:'5px', backgroundColor:'#EBEBFF', borderRadius:'10px', alignSelf:'center'}}>Поиск</div>
+                            <div style={{ border: '2px solid #8787C7', padding: '5px', margin: '5px', backgroundColor: '#EBEBFF', borderRadius: '10px', alignSelf: 'center' }}>Поиск</div>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', padding: '5px', margin: '5px'}}>
+                        <div style={{ display: 'flex', flexDirection: 'column', padding: '5px', margin: '5px' }}>
                             <FilterTag></FilterTag>
                             <FilterTag></FilterTag>
                             <FilterTag></FilterTag>
