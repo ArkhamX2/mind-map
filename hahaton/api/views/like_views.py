@@ -6,6 +6,15 @@ from models.models.comment import Comment
 from models.models.project import Project
 from django.contrib.contenttypes.models import ContentType
 
+
+@api_view(['GET'])
+def get_likes_to_project(request):
+    id=request.data['project_id']
+    queryset = Like.objects.filter(content_type=ContentType.objects.get_for_model(Project), object_id=id)
+    data=LikeSerializer(queryset,many=True).data
+    return Response(data)
+
+
 @api_view(['POST'])
 def create_like(request):
     class_dict={

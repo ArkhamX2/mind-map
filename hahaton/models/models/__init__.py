@@ -5,3 +5,4 @@ from models.models.comment import Comment
 from models.models.project import Project
 from models.models.user_tag import UserTags
 from models.models.course_tag import CourseTags
+from models.models.course_status import CourseStatus

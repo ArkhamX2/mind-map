@@ -5,3 +5,4 @@ from models.admin.comment_admin import CommentAdmin
 from models.admin.project_admin import ProjectAdmin
 from models.admin.usertag_admin import UserTagAdmin
 from models.admin.coursetag_admin import CourseTagAdmin
+from models.admin.course_status_admin import CourseStatusAdmin
