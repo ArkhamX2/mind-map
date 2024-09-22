@@ -8,6 +8,8 @@ import { Edge, Node, Data } from "vis-network/standalone/esm/vis-network";
 import useModal from "../utility/useModal";
 import Modal from "./modal";
 import { BASE_LINK } from "../../settings.ts"
+import FilterTag from "./filtertag";
+import classes from '../styles/login.module.css'
 
 const createMindNerworkProps = (courses: course[], courseTags: courseTag[]): Data => {
     var nodes: Node[] = []
@@ -112,7 +114,34 @@ const Profile: FC = () => {
     return (
         <main style={{ backgroundColor: "#FFFFFF", width: '100%', height: '100%', padding: "15px" }}>
             <Modal isOpen={isOpen} toggle={toggle}>
-                TEST
+                <div style={{ width: '400px', height: '480px', overflowY: 'auto'}}>
+                    <div style={{overflowY: 'auto', display:'flex', flexDirection:'column'}}>
+                        <div style={{ display: 'flex', flexDirection: 'row', padding: '5px', margin: '5px' }}>
+                            <input className={classes.Input} style={{ width: '320px' }}></input>
+                            <div style={{border:'2px solid #8787C7', padding:'5px', margin:'5px', backgroundColor:'#EBEBFF', borderRadius:'10px', alignSelf:'center'}}>Поиск</div>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', padding: '5px', margin: '5px'}}>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'row' }}>
+                            <button className={classes.Button}>Очистить</button>
+                            <button className={classes.Button}>Применить</button>
+                        </div>
+
+                    </div>
+                </div>
+
             </Modal>
             <div style={{ overflowY: 'auto', display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
                 <div className="profileinfo" style={{ display: "flex", flexDirection: 'row', marginTop: '70px', alignSelf: 'center' }}>

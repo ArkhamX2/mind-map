@@ -1,5 +1,6 @@
 import { FC, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import classes from '../styles/login.module.css'
 
 const Navbar: FC = () => {
     const navigate = useNavigate()
@@ -7,15 +8,15 @@ const Navbar: FC = () => {
     return (
         <header style={{ display: 'flex', border: '2px solid lightgray', padding: '5px', color: '#371F76', alignSelf: 'flex-start', position:'fixed',
          backgroundColor:"#EBEBFF", width:'100%' }}>
-            <Link style={{ margin: '5px 10px', padding: '5px', textAlign: 'center', fontSize: '28px', textDecoration: 'none' }} to='/login'>
+            <Link className={classes.Navigation} to='/login'>
                 Войти</Link>
-            <Link style={{ margin: '5px 10px', padding: '5px', textAlign: 'center', fontSize: '28px', textDecoration: 'none' }} to='/registration'>
+            <Link className={classes.Navigation} to='/registration'>
                 Зарегистрироваться</Link>
-            <Link style={{ margin: '5px 10px', padding: '5px', textAlign: 'center', fontSize: '28px', textDecoration: 'none' }} to='/agregator'>
+            <Link className={classes.Navigation} to='/agregator'>
                 Обучение</Link>
-            <Link style={{ margin: '5px 10px', padding: '5px', textAlign: 'center', fontSize: '28px', textDecoration: 'none' }} to='/profile'>
+            <Link className={classes.Navigation} to='/profile'>
                 Профиль</Link>
-            <Link style={{ margin: '5px 10px', padding: '5px', textAlign: 'center', fontSize: '28px', textDecoration: 'none' }} to='/projects'>
+            <Link className={classes.Navigation} to='/projects'>
                 Проекты</Link>
         </header>
 
