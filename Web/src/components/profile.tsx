@@ -84,33 +84,24 @@ const Profile: FC = () => {
     useEffect(() => {
         var userId = 2
         console.log("FETCH")
-        axios.get(BASE_LINK + "api/user_tag/get/" + userId, {
+        axios.get(BASE_LINK + "api/course_tag/get", {
         }).then((res) => {
             console.log(res)
-            setInitialCourseTagData(res.data)
-            axios.get(BASE_LINK + "api/course_status/get/" + userId, {
+            var courseTag = res.data
+
+            axios.get(BASE_LINK + "api/course/get", {
             }).then((res) => {
                 console.log(res)
-                var courseIds = (res.data as courseStatus[]).filter((status) => status.status == "completed")
-                courseIds.map((status) => {
-                    axios.get(BASE_LINK + "api/course/get/" + status.course, {
-                    }).then((res) => {
-                        console.log(res)
-                        axios.get(BASE_LINK + "api/course_tag/get/", {
-                        }).then((res) => {
-                            console.log(res)
-                        }).catch((err) => {
-                            console.log("Server respondend with error: ", err);
-                        })
-                        setInitialCourseData([...initialCourseData, res.data])
-                        setUpd(true)
-                    }).catch((err) => {
-                        console.log("Server respondend with error: ", err);
-                    })
-                })
+                var course = res.data
+
+                setInitialCourseData(course)
+                setInitialCourseTagData(courseTag)
+
+                setUpd(true)
             }).catch((err) => {
                 console.log("Server respondend with error: ", err);
             })
+
         }).catch((err) => {
             console.log("Server respondend with error: ", err);
         })
