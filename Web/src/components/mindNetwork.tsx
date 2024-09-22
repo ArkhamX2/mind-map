@@ -16,7 +16,6 @@ type mindProps = {
 }
 
 const MindNetwork: FC<{ props: mindProps }> = ({ props }: { props: mindProps }) => {
-  console.log(props.data.nodes)
   const { ref, network } = useVisNetwork({
     options: defaultOptions,
     edges: [],
