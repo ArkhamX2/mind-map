@@ -32,12 +32,12 @@ const Projects: FC = () => {
                                         fontSize:'20px', fontWeight:'400', margin:'5px'}}>тэг</div>
                     </div>
                 </div>
-                <div className="cardContainer" style={{ display: 'grid', overflowY: 'auto', gridTemplateColumns: '1fr 1fr', columnGap: '10px', alignSelf:'center' }}>
+                <div className="cardContainer" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: '10px', alignSelf:'center' }}>
                     <CardInfo></CardInfo>
                     <CardInfo></CardInfo>
-                    <AgrCard></AgrCard>
-                    <AgrCard></AgrCard>
-                    <AgrCard></AgrCard>
+                    <CardInfo></CardInfo>
+                    <CardInfo></CardInfo>
+                    <CardInfo></CardInfo>
                 </div>
             </div>
         </main>
