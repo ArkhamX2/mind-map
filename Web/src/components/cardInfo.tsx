@@ -47,7 +47,9 @@ const CardInfo: FC = () => {
                                                 </div>
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                                <input placeholder=' Сообщение' style={{ width: '100%', overflowY: 'auto', height: '42px', border: '2px solid #8787C7', borderRadius: '10px' }}></input>
+                                                <input placeholder=' Сообщение' style={{ width: '100%', overflowY: 'auto', height: '42px', border: '2px solid #8787C7', borderRadius: '10px', fontSize:'16px'
+                                                        , padding:'4px'
+                                                 }}></input>
                                                 <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#7D83FF', padding: '5px', margin: '0px 5px' }}>
                                                         <img src="/images/send.png" alt="Отпр">
                                                         </img></div>
