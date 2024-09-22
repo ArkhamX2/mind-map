@@ -2,6 +2,7 @@ import axios, { AxiosError } from "axios";
 import { FC, useState } from "react"
 import { Link, useNavigate } from 'react-router-dom'
 import AgrCard from "../components/agrCard"
+import CardInfo from "./cardInfo";
 
 const Projects: FC = () => {
     return (
@@ -32,7 +33,8 @@ const Projects: FC = () => {
                     </div>
                 </div>
                 <div className="cardContainer" style={{ display: 'grid', overflowY: 'auto', gridTemplateColumns: '1fr 1fr', columnGap: '10px', alignSelf:'center' }}>
-                    <AgrCard></AgrCard>
+                    <CardInfo></CardInfo>
+                    <CardInfo></CardInfo>
                     <AgrCard></AgrCard>
                     <AgrCard></AgrCard>
                     <AgrCard></AgrCard>

@@ -15,15 +15,24 @@ const CardInfo: FC = () => {
                                         fontSize: '20px', fontWeight: '400', margin: '5px'
                                 }}>тэг</div>
                         </div>
-                        <div className="button"><button style={{
-                                width: '100%', height: '48px', margin: '5px 0', border: '0px transparent', backgroundColor: "#7D83FF",
-                                borderRadius: '10px', color: 'white', fontSize: '22px'
-                        }}>Просмотр</button></div>
+                        <div style={{display:'flex', flexDirection:'row', width:'100%'}}>
+                                <div className="button"><button style={{
+                                        width: '100%', height: '48px', margin: '5px 0', border: '0px transparent', backgroundColor: "#7D83FF",
+                                        borderRadius: '10px', color: 'white', fontSize: '22px'
+                                }}>Просмотр</button></div>
+                                <div className="button"><button style={{
+                                        width: '100%', height: '48px', margin: '5px 0', border: '0px transparent', backgroundColor: "#7D83FF",
+                                        borderRadius: '10px', color: 'white', fontSize: '22px'
+                                }}>Оценить</button></div>
+                        </div>
+
                         <div>
                                 <div className='comments'>
-                                        <div>Коменнтарии</div>
-                                        <div> коментарий 1</div>
-                                        <div style={{display:'flex', flexDirection:'row'}}>
+                                        <div>Коменнтарии:</div>
+                                        <div>
+                                                <div style={{}}>КОТ</div>
+                                        </div>
+                                        <div style={{ display: 'flex', flexDirection: 'row' }}>
                                                 <input></input>
                                                 <div>Отправить</div>
                                         </div>
