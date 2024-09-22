@@ -5,6 +5,8 @@ import TagComponent from "../components/taglistComponent"
 import MindNetwork from "../components/mindNetwork"
 import { course, courseTag } from "../types";
 import { Edge, Node, Data } from "vis-network/standalone/esm/vis-network";
+import useModal from "../utility/useModal";
+import Modal from "./modal";
 
 const TagColors = [
     `AliceBlue`,
@@ -221,6 +223,7 @@ const Profile: FC = () => {
     const [selectedNode, setSelectedNode] = useState<number>()
     const [courseData, setCourseData] = useState([...initCourseData])
     const [courseTagData, setCourseTagData] = useState([...initCourseTagData])
+    const { isOpen, toggle } = useModal()
 
     useEffect(() => {
         if (selectedNode != undefined) {
@@ -250,6 +253,9 @@ const Profile: FC = () => {
     }
     return (
         <main style={{ backgroundColor: "#FFFFFF", width: '100%', height: '100%', padding: "15px" }}>
+            <Modal isOpen={isOpen} toggle={toggle}>
+                TEST
+            </Modal>
             <div style={{overflowY:'auto', display:'flex', flexDirection:'column', width: '100%', height: '100%'}}>
                 <div className="profileinfo" style={{display: "flex", flexDirection: 'row', marginTop:'70px', alignSelf:'center' }}>
                     <div className="logo" style={{ width: '300px', height: '300px', backgroundColor: 'lightgray', borderRadius: '15px', margin: '10px 15px' }}>
@@ -281,7 +287,7 @@ const Profile: FC = () => {
                     <button style={{
                         width: '240px', height: '48px', justifySelf: 'center', margin: '10px', backgroundColor: '#7D83FF', color: 'white'
                         , border: '0px solid transparent', borderRadius: '10px'
-                    }}>Добавить</button>
+                    }} onClick={toggle}>Добавить</button>
                 </div>
                 <div className="mapcontainer" style={{ width: "100%", height: '100%', display: "flex", flexDirection: 'column', padding: '10px', alignItems:'center' }}>
                     <div className="label" style={{ margin: '5px 0' }}><h2>Карта знаний</h2></div>
