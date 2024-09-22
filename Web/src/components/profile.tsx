@@ -219,9 +219,9 @@ const testCourseTagData = [
 
 const Profile: FC = () => {
     return (
-        <main style={{ backgroundColor: "#FFFFFF" }}>
-            <div style={{ margin: '0 160px' }}>
-                <div className="profileinfo" style={{ width: "100%", height: '100%', display: "flex", flexDirection: 'row' }}>
+        <main style={{ backgroundColor: "#FFFFFF"}}>
+            <div style={{ margin: '0 160px', overflowY:'auto'  }}>
+                <div className="profileinfo" style={{ width: "100%", height: '100%', display: "flex", flexDirection: 'row', marginTop:'70px' }}>
                     <div className="logo" style={{ width: '300px', height: '300px', backgroundColor: 'lightgray', borderRadius: '15px', margin: '10px 15px' }}>
                     </div>
                     <div className="descrcontainer" style={{ margin: '10px' }}>

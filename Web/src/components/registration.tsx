@@ -44,6 +44,7 @@ const Registration: FC = () => {
     }
     return (
         <div className="container">
+            <div>
             <div className="header">
                 <div className="text">Sign Up</div>
             </div>
@@ -72,6 +73,8 @@ const Registration: FC = () => {
                 <button onClick={() => register()} className="submit">Sign Up</button>
                 <button onClick={() => navigate("/login")} className="submit">Login</button>
             </div>
+            </div>
+            
         </div>
     )
 }
