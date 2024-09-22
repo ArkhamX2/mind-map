@@ -227,8 +227,8 @@ const Profile: FC = () => {
                     <div className="descrcontainer" style={{ margin: '10px' }}>
                         <div className="name" style={{ margin: '10px' }}><h2>Имя Фамилия</h2></div>
                         <div className="descr" style={{ margin: '15px 10px', backgroundColor: '#EEEFFF', width: '800px', height: "240px", borderRadius: '5px' }}>
-                            <div className="label" style={{ margin: "10px", padding: '5px' }}><h3>О себе:</h3></div>
-                            <textarea style={{ margin: '0 10px', padding: '0 5px', width: '97%', height: '78%', backgroundColor: '#EEEFFF', border: '0px #EEEFFF', outlineWidth: '0', resize: 'none' }}></textarea>
+                            <div className="label" style={{ margin: "10px 5px", padding: '5px' }}><h3>О себе:</h3></div>
+                            <textarea style={{ margin: '0 5px', padding: '0 5px', width: '97%', height: '78%', backgroundColor: '#EEEFFF', border: '0px #EEEFFF', outlineWidth: '0', resize: 'none', fontSize:'18px' }}></textarea>
                         </div>
                     </div>
                 </div>

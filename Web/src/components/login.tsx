@@ -70,8 +70,8 @@ const Login: FC = () => {
                                                         </>}
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                                <button onClick={() => login()} className={classes.Button}>Войти</button>
-                                                <button onClick={() => navigate("/registration")} style={{ backgroundColor: 'transparent', color: '#06146C', fontSize: '24px', border: '0px solid transparent', marginTop: '10px' }}>Регистрация</button>
+                                                <button onClick={() => login()} style={{ backgroundColor: 'transparent', color: '#06146C', fontSize: '24px', border: '0px solid transparent', marginTop: '10px' }}>Очистить</button>
+                                                <button className={classes.Button} onClick={() => navigate("/registration")}>Применить</button>
                                         </div>
                                 </div>
 
