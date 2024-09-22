@@ -254,13 +254,20 @@ const Profile: FC = () => {
     return (
         <main style={{ backgroundColor: "#FFFFFF", width: '100%', height: '100%', padding: "15px" }}>
             <Modal isOpen={isOpen} toggle={toggle}>
-                <div style={{ width: '400px', height: '480px'}}>
-                    <div>
+                <div style={{ width: '400px', height: '480px', overflowY: 'auto'}}>
+                    <div style={{overflowY: 'auto', display:'flex', flexDirection:'column'}}>
                         <div style={{ display: 'flex', flexDirection: 'row', padding: '5px', margin: '5px' }}>
                             <input className={classes.Input} style={{ width: '320px' }}></input>
-                            <div style={{border:'2px solid #8787C7'}}>Поиск</div>
+                            <div style={{border:'2px solid #8787C7', padding:'5px', margin:'5px', backgroundColor:'#EBEBFF', borderRadius:'10px', alignSelf:'center'}}>Поиск</div>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', padding: '5px', margin: '5px', overflowY: 'auto' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', padding: '5px', margin: '5px'}}>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
+                            <FilterTag></FilterTag>
                             <FilterTag></FilterTag>
                             <FilterTag></FilterTag>
                             <FilterTag></FilterTag>
