@@ -9,14 +9,15 @@ const AgrCard: FC = () => {
                         <div className='tagscontainer'>
                                 <div style={{
                                         height: '32px', backgroundColor: '#EBEBFF', display: 'inline-block', padding: '0 15px', textAlign: 'center', borderRadius: '10px',
-                                        fontSize:'20px', fontWeight:'400', margin:'5px'}}>тэг</div>
+                                        fontSize: '20px', fontWeight: '400', margin: '5px'
+                                }}>тэг</div>
                         </div>
                         <div className="button"><button style={{
                                 width: '100%', height: '48px', margin: '5px 0', border: '0px transparent', backgroundColor: "#7D83FF",
                                 borderRadius: '10px', color: 'white', fontSize: '22px'
                         }}>ПОДРОБНЕЕ...</button></div>
                 </div>
-                
+
         )
 }
 

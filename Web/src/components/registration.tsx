@@ -23,7 +23,13 @@ const Registration: FC = () => {
             }).then((res) => {
                 setErrorText("")
                 console.log("Server response: ", res);
-                navigate("/trains")
+                var lastURL = localStorage.getItem("lastURL")
+                if (lastURL != undefined) {
+                    navigate(lastURL)
+                }
+                else {
+                    navigate("/")
+                }
             }).catch((err: AxiosError) => {
                 console.log("Server respondend with error: ", err);
                 switch (err.status) {

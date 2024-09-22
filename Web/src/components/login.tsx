@@ -20,7 +20,13 @@ const Login: FC = () => {
                         setErrorText("")
                         console.log("Server response: ", res);
                         //Cookies.set('trains_cookie', res.data.access);
-                        navigate("/trains")
+                        var lastURL = localStorage.getItem("lastURL")
+                        if (lastURL != undefined) {
+                                navigate(lastURL)
+                        }
+                        else {
+                                navigate("/")
+                        }
                 }).catch((err) => {
                         console.log("Server respondend with error: ", err);
                         switch (err.status) {
