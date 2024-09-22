@@ -1,10 +1,12 @@
 import axios, { AxiosError } from "axios";
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { Link, useNavigate } from 'react-router-dom'
 import TagComponent from "../components/taglistComponent"
 import MindNetwork from "../components/mindNetwork"
 import { course, courseTag } from "../types";
 import { Edge, Node, Data } from "vis-network/standalone/esm/vis-network";
+import useModal from "../utility/useModal";
+import Modal from "./modal";
 
 const TagColors = [
     `AliceBlue`,
@@ -161,7 +163,7 @@ const createMindNerworkProps = (courses: course[], courseTags: courseTag[]): Dat
     var edges: Edge[] = []
 
     courseTags.map((tag) => {
-        nodes.push({ id: tag.id, label: tag.tag_name, level: tag.level, group: "tag", shape: "circle"})
+        nodes.push({ id: tag.id, widthConstraint: {minimum:50, maximum:200}, label: tag.tag_name, level: tag.level, group: "tag", shape: "circle" })
         if (tag.course_id && tag.course_id.length > 0)
             tag.course_id.map((id) => {
                 var course = courses.find((course) => course.id == id)
@@ -170,7 +172,7 @@ const createMindNerworkProps = (courses: course[], courseTags: courseTag[]): Dat
                     var node = nodes.find((node) => node.id == localCourseId)
                     // color: TagColors[TagColors.length%(tag.id!+5)]
                     if (node == undefined)
-                        nodes.push({ label: course.name, id: localCourseId, group: "course"})
+                        nodes.push({ label: course.name, widthConstraint: {minimum:50, maximum:200},id: localCourseId, group: "course", shape: "circle" })
                     // color edge if course not ended yet by user
                     edges.push({ from: tag.id, to: localCourseId })
                 }
@@ -183,10 +185,10 @@ const createMindNerworkProps = (courses: course[], courseTags: courseTag[]): Dat
     return mindProps
 }
 
-const testCourseData = [
+const initCourseData = [
     {
         id: 1,
-        name: "Краткий курс математика"
+        name: "Краткий курс математика Краткий курс математика Краткий курс математика Краткий курс математика Краткий курс математика"
     },
     {
         id: 2,
@@ -202,7 +204,7 @@ const testCourseData = [
     }
 ]
 
-const testCourseTagData = [
+const initCourseTagData = [
     {
         id: 1,
         course_id: [2, 1, 3],
@@ -218,8 +220,42 @@ const testCourseTagData = [
 ]
 
 const Profile: FC = () => {
+    const [selectedNode, setSelectedNode] = useState<number>()
+    const [courseData, setCourseData] = useState([...initCourseData])
+    const [courseTagData, setCourseTagData] = useState([...initCourseTagData])
+    const { isOpen, toggle } = useModal()
+
+    useEffect(() => {
+        if (selectedNode != undefined) {
+            if (selectedNode > 0)
+            {
+                setCourseTagData([...initCourseTagData.filter((tag)=>tag.id==selectedNode)])
+                setCourseData([...initCourseData])
+            }
+            else
+            {
+                setCourseTagData([...initCourseTagData.filter((tag)=>tag.course_id.find((id)=>id==selectedNode*-1)!=undefined)])
+                setCourseData([...initCourseData.filter((course)=>course.id==selectedNode*-1)])
+            }
+        }
+        else
+        {
+            setCourseData([...initCourseData])
+            setCourseTagData([...initCourseTagData])
+        }
+    }, [selectedNode])
+
+    const getSelectedNode = (nodeId?: number) => {
+        setSelectedNode(nodeId)
+        if (nodeId == undefined)
+            return undefined
+        return nodeId
+    }
     return (
         <main style={{ backgroundColor: "#FFFFFF", width: '100%', height: '100%', padding: "15px" }}>
+            <Modal isOpen={isOpen} toggle={toggle}>
+                TEST
+            </Modal>
             <div style={{overflowY:'auto', display:'flex', flexDirection:'column', width: '100%', height: '100%'}}>
                 <div className="profileinfo" style={{display: "flex", flexDirection: 'row', marginTop:'70px', alignSelf:'center' }}>
                     <div className="logo" style={{ width: '300px', height: '300px', backgroundColor: 'lightgray', borderRadius: '15px', margin: '10px 15px' }}>
@@ -251,12 +287,12 @@ const Profile: FC = () => {
                     <button style={{
                         width: '240px', height: '48px', justifySelf: 'center', margin: '10px', backgroundColor: '#7D83FF', color: 'white'
                         , border: '0px solid transparent', borderRadius: '10px'
-                    }}>Добавить</button>
+                    }} onClick={toggle}>Добавить</button>
                 </div>
                 <div className="mapcontainer" style={{ width: "100%", height: '100%', display: "flex", flexDirection: 'column', padding: '10px', alignItems:'center' }}>
                     <div className="label" style={{ margin: '5px 0' }}><h2>Карта знаний</h2></div>
                     <div style={{ display: 'flex', height: '600px', width: '1130px', border: '2px solid lightgray' }}>
-                        <MindNetwork props={createMindNerworkProps(testCourseData, testCourseTagData)} />
+                        <MindNetwork props={{ data: createMindNerworkProps(courseData, courseTagData), callback: getSelectedNode }} />
                     </div>
                 </div>
             </div>

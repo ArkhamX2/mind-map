@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useMemo } from "react";
 import { Data, Options, Edge, Node } from 'vis-network/standalone/esm/vis-network';
 import useVisNetwork from "../utility/useVisNetwork";
 
@@ -10,22 +10,36 @@ const defaultOptions: Options = {
   }
 };
 
-const MindNetwork: FC<{ props: Data }> = ({ props }: { props: Data }) => {
+type mindProps = {
+  data: Data,
+  callback: (nodeId?: number) => number | undefined
+}
+
+const MindNetwork: FC<{ props: mindProps }> = ({ props }: { props: mindProps }) => {
+  console.log(props.data.nodes)
   const { ref, network } = useVisNetwork({
     options: defaultOptions,
-    edges: props.edges as Edge[],
-    nodes: props.nodes as Node[]
+    edges: [],
+    nodes: []
   });
-  network?.on("selectNode", () => console.log("goToUrl"))
+  network?.setData(props.data)
+  const mindNetwork = useMemo(() => {
+    network?.on("selectNode", (item) => props.callback(item.nodes[0]))
+    network?.on("deselectNode", () => props.callback(undefined))
+    return { network }
+  }, [network])
 
-  const handleClick = () => {
-    if (!network) return;
-    network.focus((props.nodes as Node[])[0].id!);
+  network?.on("selectNode", (item) => props.callback(item.nodes[0]))
+  network?.on("deselectNode", () => props.callback(undefined))
+
+  const homeClick = () => {
+    if (!mindNetwork.network) return;
+    mindNetwork.network.focus((props.data.nodes as Node[])[0].id!);
   };
 
   return (
     <>
-      <button onClick={handleClick}>Home</button>
+      <button onClick={homeClick}>Home</button>
       <div style={{ height: "auto", width: "auto" }} ref={ref} />
     </>
   );
