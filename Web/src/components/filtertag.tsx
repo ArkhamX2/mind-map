@@ -9,8 +9,8 @@ interface filtertagProps {
 const FilterTag: FC<filtertagProps> =(props)=> {
     return (
         <div style={{width:'380spx', height:'42px', padding:'5px', display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
-                <div style={{fontSize:'20px'}}>{props.text}Текст</div>
-                <div style={{width:'30px', height:'30px', border:'4px solid #8787C7'}}>  +</div>
+                <div style={{fontSize:'20px'}}>{props.text}Навык</div>
+                <div style={{width:'30px', height:'30px', border:'4px solid #8787C7'}}></div>
         </div>
     )
 }
