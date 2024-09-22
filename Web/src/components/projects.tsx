@@ -6,8 +6,12 @@ import AgrCard from "../components/agrCard"
 const Projects: FC = () => {
     return (
         <main style={{ backgroundColor: "#FFFFFF", width: '100%', height: '100%', padding: "15px" }}>
-            <div style={{display:'flex', flexDirection:'column'}}>
-                <div className="searchcontainer" style={{ width: "100%", height: '100%', display: "flex", flexDirection: 'column' }}>
+            <div style={{display:'flex', flexDirection:'column', width: '100%', height: '100%'}}>
+                <div className="searchcontainer" style={{ display: "flex", flexDirection: 'column', marginTop:'60px', alignSelf:'center' }}>
+                    <div style={{display:"inline-flex", backgroundColor:'#EBEBFF', alignSelf:'center', padding:'5px', margin:'5px 5px 10px 5px', justifyContent:'space-between', width:'360px', height:'42px', borderRadius:'10px' }}>
+                        <div style={{fontSize:'24px', marginLeft:'5px'}} >Мои проекты </div>
+                        <div style={{fontSize:'24px', marginRight:'5px'}}> Другие</div>
+                    </div>
                     <div className="searchbarcontainer" style={{ display: 'inline-flex', justifyContent: 'space-between', alignSelf:'center' }}>
                         <div className="searchbar" style={{ justifySelf: 'start' }}>
                             <input type="text" style={{

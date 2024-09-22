@@ -11,7 +11,7 @@ const AppRouter = () => {
   }, [history])
   return (
     <>
-      <div>
+      <div style={{position:"fixed"}}>
         <Navbar />
       </div>
       <Routes>

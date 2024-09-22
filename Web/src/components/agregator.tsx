@@ -6,7 +6,7 @@ const Agregator: FC = () => {
     return (
         <main style={{ backgroundColor: "#FFFFFF", width: '100%', height: '100%', padding: "15px" }}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div className="searchcontainer" style={{ width: "100%", height: '100%', display: "flex", flexDirection: 'column' }}>
+                <div className="searchcontainer" style={{ width: "100%", height: '100%', display: "flex", flexDirection: 'column', marginTop:'70px' }}>
                     <div className="searchbarcontainer" style={{ display: 'inline-flex', justifyContent: 'space-between', alignSelf: 'center' }}>
                         <div className="searchbar" style={{ justifySelf: 'start' }}>
                             <input type="text" style={{
