@@ -11,3 +11,7 @@ class Project(models.Model):
         db_table = "projects"
         verbose_name = "Project"
         verbose_name_plural = "Projects"
+
+        
+    def __str__(self):
+        return f"id: {self.pk}, name: {self.name}, description: {self.description}, avatar: {self.avatar}, likes: {self.likes}"

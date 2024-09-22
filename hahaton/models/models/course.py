@@ -9,3 +9,5 @@ class Course(models.Model):
         verbose_name = "Course"
         verbose_name_plural = "Courses"
 
+    def __str__(self):
+        return f"id: {self.pk}, name: {self.name}, description: {self.description}, avatar: {self.avatar}"

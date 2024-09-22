@@ -31,8 +31,17 @@ urlpatterns = [
     path('course_tag/get/<int:id>', views.get_course_tag_by_id),
     path('course_tag/get_by_course', views.get_course_tags_by_course),
 
-    #UserTag
+    #UserTag +
     path('user_tag/get/<int:id>', views.get_user_tags_by_user_id),
+
+    #CourseTag
+    path('course_status/get', views.get_course_status),
+    path('course_status/get/<int:id>', views.get_course_status_by_user),
+    path('course_status/get_by_course/<int:id>', views.get_course_status_by_course),
+    path('course_status/get_by_name/<str:status>', views.get_course_status_by_name),
+    path('course_status/create', views.create_course_status),
+    path('course_status/update', views.update_course_status),
+    path('course_status/delete', views.delete_course_status),
 
 
     

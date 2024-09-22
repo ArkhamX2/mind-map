@@ -80,7 +80,7 @@ const Profile: FC = () => {
 
     useEffect(() => {
         console.log("FETCH")
-        axios.post(BASE_LINK + "api/user_tag/get/3", {
+        axios.get(BASE_LINK + "api/user_tag/get/3", {
         }).then((res) => {
             console.log(res)
         }).catch((err) => {

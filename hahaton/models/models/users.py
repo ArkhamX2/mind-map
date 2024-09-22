@@ -8,3 +8,7 @@ class Users(AbstractUser):
         db_table = "users"
         verbose_name = "User"
         verbose_name_plural = "Users"
+
+        
+    def __str__(self):
+        return f"id: {self.pk}, username: {self.username}, avatar: {self.avatar}, description: {self.description}"
