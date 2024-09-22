@@ -41,10 +41,9 @@ const Login: FC = () => {
         return (
                 <main style={{ backgroundColor: "#FFFFFF", width: '100%', height: '100%', padding: "15px", display: 'flex' }}>
                         <div className="container" style={{
-                                alignSelf: 'center', display: 'flex', marginTop: '80px', flexDirection: 'column', width: '100%', alignItems: 'center',
-
+                                alignSelf: 'center', display: 'flex', marginTop: '80px', flexDirection: 'column', width: '100%', alignItems: 'center'
                         }}>
-                                <div style={{ width: '520px', height: '500px', backgroundColor: '#F3F3F8', display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: '50px', padding: '10px', borderRadius:'12px' }}>
+                                <div style={{ width: '520px', height: '500px', backgroundColor: '#F3F3F8', display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: '50px', padding: '10px', borderRadius: '12px' }}>
                                         <div className="header" style={{ display: 'flex' }}>
                                                 <div className="text" style={{ fontSize: '28px', margin: '10px' }}>Вход</div>
                                         </div>
@@ -70,9 +69,9 @@ const Login: FC = () => {
 
                                                         </>}
                                         </div>
-                                        <div style={{display:'flex', flexDirection:'column'}}>
+                                        <div style={{ display: 'flex', flexDirection: 'column' }}>
                                                 <button onClick={() => login()} className={classes.Button}>Войти</button>
-                                                <button  onClick={() => navigate("/registration")} style={{backgroundColor:'transparent', color:'#06146C', fontSize:'24px', border:'0px solid transparent', marginTop:'10px'}}>Регистрация</button>
+                                                <button onClick={() => navigate("/registration")} style={{ backgroundColor: 'transparent', color: '#06146C', fontSize: '24px', border: '0px solid transparent', marginTop: '10px' }}>Регистрация</button>
                                         </div>
                                 </div>
 
