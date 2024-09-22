@@ -7,12 +7,12 @@ const TagComponent: FC = () => {
                         <div style={{ margin: '10px', width: '620px', height: '52px', backgroundColor: '#EEEFFF', borderRadius: '5px', display: 'flex', alignItems: 'center'
                                 , justifySelf:'start'
                          }}>
-                                <div style={{margin:'0px 10px'}}>Название тега</div>
+                                <div style={{margin:'0px 10px'}}>Суперкрутой навык</div>
                         </div>
                         <div style={{ margin: '10px', width: '320px', height: '52px', backgroundColor: '#BCFF95', borderRadius: '5px', display: 'flex', alignItems: 'center'
                                 , justifySelf:'end'
                          }}>
-                                <div style={{margin:'0px 10px'}}>Уровень 1</div>
+                                <div style={{margin:'0px 10px'}}>Уровень 2</div>
                         </div>
                 </div>
 
