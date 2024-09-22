@@ -8,6 +8,8 @@ from rest_framework import status
 @api_view(['GET'])
 def get_courses(request):
     queryset = Course.objects.all()
+    course=Course.objects.filter(pk=2)
+    
     serializer = CourseSerializer(queryset,many=True)
     return Response(serializer.data)
 

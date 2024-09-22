@@ -48,3 +48,11 @@ export type user = {
     avatar?: string,
     description?: string
 }
+
+export type courseStatus = {
+    id?: number,
+    CHOICE_STATE: string,
+    user: number,
+    course: number,
+    status: string
+}

@@ -12,3 +12,4 @@ class Comment(models.Model):
         verbose_name_plural = "Comments"
     def __str__(self):
         return f"id: {self.pk}, user_id: {self.user_id}, content: {self.content}, like: {self.like}"
+    
