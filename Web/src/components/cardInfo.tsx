@@ -31,24 +31,26 @@ const CardInfo: FC = () => {
                                         borderRadius: '10px', color: 'white', fontSize: '22px'
                                 }}><img src="/images/like.png" alt="Отпр">
                                         </img>
-                                        </button></div>
+                                </button></div>
                         </div>
 
                         <div>
                                 <div className='comments'>
                                         <div style={{ margin: '5px 0px', fontSize: '20px' }}>Коменнтарии:</div>
                                         <div style={{ overflowY: 'auto', display: 'flex', flexDirection: 'row', margin: '10px 20px' }}>
-                                                <div style={{ width: '40px', height: '40px', backgroundColor: 'lightgray', borderRadius: '50%', margin: '0px 10px 0px 0px' }}></div>
+                                                <div style={{ width: '40px', height: '40px', backgroundColor: 'lightgray', borderRadius: '50%', margin: '0px 10px 0px 0px' }}>
+                                                <img src="/images/chat_icon.png" alt="Картинка"/>
+                                                </div>
                                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                                        <div>Name</div>
-                                                        <div style={{ textWrap: 'wrap', overflowY: 'auto', width: '100%' }}>Commenta sddddddddddssaddddddddddddddddddddddddddddddddddddassssssssssssssss</div>
+                                                        <div>Посетитель:</div>
+                                                        <div style={{ textWrap: 'wrap', overflowY: 'auto', width: '100%' }}>Какой классный проект</div>
                                                 </div>
                                         </div>
                                         <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                                <input style={{ width: '100%', overflowY: 'auto', height: '42px', border: '2px solid #8787C7', borderRadius: '10px' }}></input>
+                                                <input placeholder=' Сообщение' style={{ width: '100%', overflowY: 'auto', height: '42px', border: '2px solid #8787C7', borderRadius: '10px' }}></input>
                                                 <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#7D83FF', padding: '5px', margin: '0px 5px' }}>
-                                                <img src="/images/send.png" alt="Отпр">
-                                                </img></div>
+                                                        <img src="/images/send.png" alt="Отпр">
+                                                        </img></div>
                                         </div>
 
 
