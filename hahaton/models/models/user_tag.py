@@ -8,3 +8,7 @@ class UserTags(models.Model):
         db_table = "user_tags"
         verbose_name = "UserTag"
         verbose_name_plural = "UserTags"
+
+        
+    def __str__(self):
+        return f"id: {self.pk}, user_id: {self.user_id}, tag_name: {self.tag_name}, level: {self.level}"

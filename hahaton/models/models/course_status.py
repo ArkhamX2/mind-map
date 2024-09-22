@@ -15,3 +15,6 @@ class CourseStatus(models.Model):
         db_table = "course_status"
         verbose_name = "CourseStatus"
         verbose_name_plural = "CourseStatus"
+
+    def __str__(self):
+        return f"id: {self.pk}, CHOICE_STATE: {self.CHOICE_STATE}, user: {self.user}, course: {self.course}, course: {self.status}"

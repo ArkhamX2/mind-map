@@ -11,3 +11,6 @@ class Like(models.Model):
         db_table = "likes"
         verbose_name = "Like"
         verbose_name_plural = "Likes"
+        
+    def __str__(self):
+        return f"id: {self.pk}, user_id: {self.user_id}, content_type: {self.content_type}, object_id: {self.object_id}, object: {self.object}"

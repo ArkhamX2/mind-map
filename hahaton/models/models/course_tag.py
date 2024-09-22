@@ -10,3 +10,6 @@ class CourseTags(models.Model):
         db_table = "course_tags"
         verbose_name = "CourseTag"
         verbose_name_plural = "CourseTags"
+    
+    def __str__(self):
+        return f"id: {self.pk}, course_id: {self.course_id}, project_id: {self.project_id}, tag_name: {self.tag_name}, level: {self.level}"
