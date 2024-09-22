@@ -38,7 +38,7 @@ const MindNetwork: FC<{ props: mindProps }> = ({ props }: { props: mindProps }) 
 
   return (
     <>
-      <button onClick={homeClick}>Home</button>
+      <button style={{backgroundColor:'#7D83FF', borderRadius:'10px', border:'0px solid transparent', height:'48px', width:'90px', margin:'5px'}} onClick={homeClick}>Home</button>
       <div style={{ height: "auto", width: "auto" }} ref={ref} />
     </>
   );
